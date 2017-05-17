@@ -120,9 +120,21 @@ class Page extends CI_Controller{
         if($this->session->userdata('status') != "login"){
             redirect('page');
         }else{
-             $stt['class']="active";
-           $this->load->view('page_header',$stt);
+            $stt['class']="active";
+			$this->load->view('page_header',$stt);
             $this->load->view('page_produkPakan');
+            $this->load->view('page_footer'); 
+        }
+    }
+	public function cAksesoris(){ //menu aksesoris
+        if($this->session->userdata('status') != "login"){
+            redirect('page');
+        }else{
+            $stt['class']="active";
+			$usaha =$this->session->userdata('usaha');
+			$rows = $this->model->readAksesoris($usaha);
+			$this->load->view('page_header',$stt);
+            $this->load->view('page_produkAksesoris', ['rows'=>$rows]);
             $this->load->view('page_footer'); 
         }
     }
