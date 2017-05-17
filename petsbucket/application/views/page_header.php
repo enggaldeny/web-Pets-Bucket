@@ -68,7 +68,7 @@
                       </a>
                       <ul class="sub">
                           <li><a href="<?php echo base_url().'index.php/page/cPakan'?>"><i class="fa fa-cutlery"></i>&nbsp;Pakan Hewan</a></li>
-                          <li><a href="#"><i class="fa fa-paw"></i>&nbsp;Aksesoris</a></li>
+                          <li><a href="<?php echo base_url().'index.php/page/cAksesoris'?>"><i class="fa fa-paw"></i>&nbsp;Aksesoris</a></li>
                       </ul>
                   </li>
               </ul>

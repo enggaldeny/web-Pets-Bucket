@@ -14,5 +14,10 @@ public function __construct(){
         $sql=sprintf("update tb_akun_penjual set pjl_nama='%s',pjl_nama_usaha='%s',pjl_alamat='%s',pjl_hp='%s', pjl_email='%s',pjl_deskripsi='%s',pjl_bank='%s', pjl_rekening='%s' where pjl_id='%s'",$this->nama,$this->usaha,$this->alamat,$this->hp,$this->email,$this->deskripsi,$this->bank,$this->rekening,$this->kode);
         $this->db->query($sql);
     }
+	public function readAksesoris($usaha){
+		$sql = "SELECT p.* FROM tb_produk p, tb_akun_penjual a WHERE ktg_id='KT-AK' AND a.pjl_nama_usaha='$usaha' AND p.pjl_id=a.pjl_id";
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
 }
 ?>
