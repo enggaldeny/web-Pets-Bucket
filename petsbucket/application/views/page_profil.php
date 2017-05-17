@@ -6,7 +6,7 @@
           		<h4>Profil Usaha Anda</h4>
           		</div>
           	</div>
-              <form action="<?php echo base_url()?>/index.php/page/edit_profil" method="post">
+              <form action="<?php echo base_url()?>/index.php/page/edit_profil" method="post" enctype="multipart/form-data">
               <div class="row">
               <div class="col-md-3">
               <img src="<?php echo base_url()?>assets/style/img/<?php echo $model->gbr ?>" class="img-rounded" alt="Cinque Terre" width="270" height="200"><br><br>

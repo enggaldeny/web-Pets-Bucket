@@ -86,7 +86,21 @@ class Page extends CI_Controller{
           }
     }
     
-     public function edit_profil(){   //edit profil        
+     public function edit_profil(){   //edit profil   
+         
+                $config['upload_path']          = 'http://localhost/kuliah/web_base/petsbucket/assets/style/img/perusahan/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 1000;
+                $this->load->library('upload', $config);
+
+                if ( !$this->upload->do_upload('gbr'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+                        $this->cProfil();
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
             $this->model->kode=$_POST['kode'];
             $this->model->nama=strtoupper($_POST['nama']);
             $this->model->usaha=$_POST['usaha'];
@@ -96,8 +110,11 @@ class Page extends CI_Controller{
             $this->model->deskripsi=$_POST['desk'];
             $this->model->bank=$_POST['bank'];
             $this->model->rekening=$_POST['rek'];
+            $this->model->gbr=$_FILES['gbr']['name'];
             $this->model->m_editProfil();
             $this->cProfil();
+                }
+           
     }
      public function cPakan(){ //menu pakan
         if($this->session->userdata('status') != "login"){

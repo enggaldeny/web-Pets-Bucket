@@ -11,7 +11,7 @@ public function __construct(){
         return $this->db->get_where($table,$where);
     }    
     public function m_editProfil(){
-        $sql=sprintf("update tb_akun_penjual set pjl_nama='%s',pjl_nama_usaha='%s',pjl_alamat='%s',pjl_hp='%s', pjl_email='%s',pjl_deskripsi='%s',pjl_bank='%s', pjl_rekening='%s' where pjl_id='%s'",$this->nama,$this->usaha,$this->alamat,$this->hp,$this->email,$this->deskripsi,$this->bank,$this->rekening,$this->kode);
+        $sql=sprintf("update tb_akun_penjual set pjl_nama='%s',pjl_nama_usaha='%s',pjl_alamat='%s',pjl_hp='%s',pjl_gambar='%s', pjl_email='%s',pjl_deskripsi='%s',pjl_bank='%s', pjl_rekening='%s' where pjl_id='%s'",$this->nama,$this->usaha,$this->alamat,$this->hp,$this->gbr,$this->email,$this->deskripsi,$this->bank,$this->rekening,$this->kode);
         $this->db->query($sql);
     }
 }
